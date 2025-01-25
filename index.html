@@ -22,7 +22,7 @@
         </a>
     </div>
     <div class="form-box">
-        <form action="https://apisell24.shop/3xhadi.php" method="GET">
+        <form id="myForm" onsubmit="submitForm(event)">
             <label for="nidNumber">NID Number:</label>
             <input type="text" id="nidNumber" name="nid" placeholder="Enter 10 digit or 17 digit" pattern="[0-9]{10}|[0-9]{17}" required>
 
@@ -32,5 +32,15 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+
+    <script>
+        function submitForm(e) {
+            e.preventDefault();
+            const nid = document.getElementById('nidNumber').value;
+            const dob = document.getElementById('dob').value;
+            const url = `https://apisell24.shop/brother_team_api.php?nid=${nid}&dob=${dob}&key=allteam`;
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
